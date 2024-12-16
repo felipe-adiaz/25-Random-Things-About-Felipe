@@ -1,2 +1,2 @@
-# my-fuqua-experience
-Media from my campus visit
+# 25-Random-Things-About-Felipe
+Media from my life journey and campus visit
