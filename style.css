@@ -1,0 +1,297 @@
+/* General Body Style */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #efecea;
+  color: var(--charcoal);
+  margin: 0;
+  padding: 0;
+}
+
+/* Timeline Section Styles */
+.timeline {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 50px auto;
+  padding-top: 0px;
+  padding: 50px 20px;
+  padding-bottom: 50vh;
+  background-color: #efecea;
+  border-radius: 10px;
+}
+
+
+/* Default style for milestones */
+.milestone {
+  opacity: 0.5;
+  transform: scale(0.4);  /* Make the milestone smaller by default */
+  transition: all 0.6s ease-out;
+  position: relative;
+  margin: 50px 0;
+  text-align: center;
+  z-index: 1;  /* Default z-index */
+}
+
+.milestone.active {
+  opacity: 1;
+  transform: scale(1.2);  /* Make the milestone bigger when focused */
+  z-index: 10;
+}
+
+/* Default style for Vmilestone */
+.Vmilestone {
+  opacity: 0.5;
+  transform: scale(0.4);  /* Make the milestone smaller by default */
+  transition: all 0.6s ease-out;
+  position: relative;
+  margin: 50px 0;
+  text-align: center;
+}
+
+.Vmilestone.active {
+  opacity: 1;
+  transform: scale(1.07);  /* Make the milestone bigger when focused */
+  z-index: 10;
+}
+
+/* Content box styling for milestones */
+.milestone .contentL, .Vmilestone .contentL {
+  display: inline-block;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: all 0.6s ease;
+  z-index: 2;
+  border-left: 10px solid #012169;
+  position: relative;
+  width: 80%; /* Adjust width for alignment */
+}
+
+.Vmilestone .contentL {
+  width: 90%; /* Adjust this width as necessary */
+  padding: 25px;
+  text-align: left; /* If you want a left-aligned layout for Vmilestone */
+}
+
+.milestone .contentR {
+  display: inline-block;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: all 0.6s ease;
+  z-index: 2;
+  border-right: 10px solid #012169;
+  position: relative;
+  width: 80%; /* Adjust width for alignment */
+}
+
+/* Align text for left milestones */
+.milestone[data-side="left"] .contentL {
+  text-align: left;  /* Align text to the left */
+  padding-left: 20px;  /* Add left padding to give space */
+}
+
+/* Align text for right milestones */
+.milestone[data-side="right"] .contentR {
+  text-align: right;  /* Align text to the right */
+  padding-right: 20px;  /* Add right padding to give space */
+}
+
+
+/* Ensure images inside the content are centered */
+.pic1, .pic2, .pic3 , .pic4, .pic5, .pic6, .pic7, .pic8, .pic9, .pic10 {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.pic1 {
+  transform: scale(1);
+  max-height: 600px;
+}
+
+.pic10 {
+  transform: scale(1);
+  max-height: 600px;
+
+}
+
+
+/* Ensure intro section stays in place */
+.intro-content {
+  background-color: #012169;  /* Blue background */
+  color: white;  /* White text color for contrast */
+  padding-top: 25px;  /* Add padding inside the box for spacing */
+  padding-bottom: 40px;
+  text-align: center;  /* Center the text horizontally */
+  margin: 0 auto;  /* Center the box horizontally within the page */
+  max-width: 100%;  /* Optional: Limit the width of the box */
+  border-radius: 10px;  /* Optional: Rounded corners */
+  position: relative;  /* Ensure the intro content is positioned correctly */
+  z-index: 1;  /* Make sure the intro section stays on top */
+}
+
+/* Optional: Adjust heading and paragraph font sizes */
+.intro-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.intro-content p {
+  font-size: 1.2em;
+  max-width: 600px;  /* Optional: Limit the width of the paragraph */
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: 'Domine', serif;
+  text-align: center;  /* Horizontally center the text */
+  font-size: 45px;      /* Increase font size */
+  color: #ffffff;      /* Change text color (use your preferred color code) */
+}
+
+h3 {
+  font-family: 'Domine', serif;
+  text-align: center;  /* Horizontally center the text */
+  font-size: 3em;      /* Increase font size */
+  color: #0270af;      /* Change text color (use your preferred color code) */
+}
+
+/* Initial style for the element */
+.timed-element {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.6s ease-out;  /* Apply a smooth transition */
+}
+
+/* Transition when the element becomes visible */
+.timed-element.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Default transition for all milestones */
+.milestone, .Vmilestone {
+  transition: all 0.6s ease-out;  /* Default transition speed */
+}
+
+/* Faster transition for the first milestone */
+.first-active {
+  transition: all 0.3s ease-out;  /* Faster transition for the first milestone */
+}
+
+/* Styling for the carousel container */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Adjust to your preference */
+  margin: auto;
+  overflow: hidden;  /* Ensure images do not overflow outside of the container */
+}
+
+/* The carousel itself */
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Each image in the carousel */
+.carousel-image {
+  width: 100%;  /* Ensure each image takes up 100% of the container's width */
+  height: auto;  /* Maintain the aspect ratio of the images */
+  object-fit: contain;  /* Ensure the image is scaled to fit the container */
+  display: block;  /* Ensure images are displayed as blocks */
+}
+
+/* Navigation buttons (Previous and Next) */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #012169;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+/* Button hover effect */
+.prev:hover, .next:hover {
+  background-color: #012169;
+  color: white;
+
+}
+
+/* Estilo para a coluna de bolas */
+.ball-column {
+  position: fixed;
+  left: 5vw;  /* Mover para a direita com 5% da largura da tela */
+  top: 10vh;  /* Posição inicial das bolas */
+  z-index: 9999;  /* Garantir que fique por cima de outros conteúdos */
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centraliza as bolas horizontalmente */
+  gap: 10px;  /* Espaço entre as bolas */
+  transition: top 1s ease-in-out, transform 1s ease-in-out;  /* Transição suave */
+}
+
+/* Estilo para as bolas */
+.ball {
+  width: 20px;  /* Tamanho inicial das bolas */
+  height: 20px;
+  background-color: rgba(1, 33, 105, 0.5);  /* Cor padrão das bolas */
+  border-radius: 50%;  /* Tornar a bola redonda */
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;  /* Transição suave */
+  display: flex; /* Flexbox para centralizar a imagem */
+  justify-content: center; /* Alinha horizontalmente */
+  align-items: center; /* Alinha verticalmente */
+}
+
+/* Quando a bola estiver ativa, ela aumenta de tamanho e exibe o ícone */
+.ball.active {
+  width: 50px;  /* Tamanho maior para a bola ativa */
+  height: 50px;
+  transform: scale(1.5) translateX(20px);  /* Aumenta a bola de forma suave e desloca para a direita */
+  background-color: #ffffff;  /* Cor diferente para a bola ativa */
+  background-image: url('images/icon.png');  /* Caminho correto da imagem */
+  background-size: 80%;  /* Ajusta o tamanho da imagem dentro da bola */
+  background-position: center;  /* Centraliza a imagem dentro da bola */
+  background-repeat: no-repeat;  /* Não repete a imagem */
+}
+
+/* Estilo para os milestones */
+.milestone, .Vmilestone {
+  opacity: 0.5;
+  transform: scale(0.4);  /* Milestones menores inicialmente */
+  transition: all 0.6s ease-out;
+}
+
+/* Quando o milestone está ativo, ele cresce */
+.milestone.active, .Vmilestone.active {
+  opacity: 1;
+  transform: scale(1.2);  /* Milestone maior quando ativo */
+  z-index: 10;
+}
+
+/* Certifique-se de que a coluna de bolas tenha um comportamento correto durante o rolar */
+.ball-column {
+  transition: top 0.3s ease, transform 0.3s ease;
+}
+
+
+
+
+
+
+
