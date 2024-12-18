@@ -264,7 +264,7 @@ h3 {
   height: 50px;
   transform: scale(1.5) translateX(20px);  /* Aumenta a bola de forma suave e desloca para a direita */
   background-color: #ffffff;  /* Cor diferente para a bola ativa */
-  background-image: url('images/icon.png');  /* Caminho correto da imagem */
+  background-image: url('https://github.com/felipe-adiaz/25-Random-Things-About-Felipe/raw/main/icon.png');  /* Caminho correto da imagem */
   background-size: 80%;  /* Ajusta o tamanho da imagem dentro da bola */
   background-position: center;  /* Centraliza a imagem dentro da bola */
   background-repeat: no-repeat;  /* Não repete a imagem */
