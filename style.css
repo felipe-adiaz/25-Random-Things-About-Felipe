@@ -10,6 +10,88 @@ body {
   color: #333;
 }
 
+/* Intro screen background */
+.introfora {
+    position: fixed;
+    z-index: 10001;
+    color: #012169;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff; /* Initial background color */
+    animation: fadeBluetoWhite 3s ease forwards; /* Optional fade */
+    transition: top 0.5s ease, opacity 0.5s ease; /* Smooth transition for fade-out */
+  }
+  
+  /* Keyframes for background fade (optional) */
+  @keyframes fadeBluetoWhite {
+    0% {
+      background-color: #012169;
+    }
+    100% {
+      background-color: #ffffff;
+    }
+  }
+  
+  /* Center the text container in the middle of the screen */
+  .intromeio {
+    position: absolute;
+    top: 40%; /* Adjust vertical alignment */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #012169;
+    text-align: center; /* Center text and spans horizontally */
+  }
+  
+  /* Styling for "DU" and "KE" spans */
+  .introdentro {
+    position: relative;
+    display: inline-block;
+    bottom: -20px; /* Initially out of position */
+    opacity: 0;    /* Initially hidden */
+    transition: bottom 0.5s ease, opacity 0.5s ease; /* Smooth fade-in */
+    font-size: 4rem;
+  }
+  
+  /* Active state for "DU" and "KE" */
+  .introdentro.active {
+    bottom: 0;    /* Move into place */
+    opacity: 1;   /* Fully visible */
+  }
+  
+  /* Styling for subtitle */
+  .subtitle {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px; /* Space below "DUKE" */
+    opacity: 0;       /* Initially hidden */
+    transform: translateY(20px); /* Start slightly lower */
+    font-size: 1.5rem; /* Adjust font size */
+    color: #012169;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade-in */
+  }
+  
+  /* Active state for subtitle */
+  .subtitle.active {
+    opacity: 1;             /* Fully visible */
+    transform: translateY(0); /* Move into position */
+  }
+  
+  /* Fade-out for spans */
+  .introdentro.fade, .subtitle.fade {
+    bottom: 20px; /* Move slightly upward */
+    opacity: 0;   /* Fade out */
+    transition: bottom 0.5s ease, opacity 0.5s ease;
+  }
+  
+  /* Fade-out for the intro container */
+  .introfora.fade-out {
+    top: -100vh; /* Move off-screen */
+  }
+
+
+
 /* ========== INTRO SECTION ========== */
 .intro-content {
   background-color: #012169;  /* Dark blue */
