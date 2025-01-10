@@ -8,6 +8,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const ballColumn = document.querySelector(".ball-column");
 
 
+
+
+// Grab all .introdentro spans, the intro container, and the subtitle
+let logoSpan = document.querySelectorAll('.introdentro');
+let intro = document.querySelector('.introfora'); // Select intro container
+let subtitle = document.querySelector('.subtitle'); // Select the subtitle
+
+window.addEventListener('DOMContentLoaded', () => {
+  // Add a small initial delay (e.g., 300ms) if you want
+  setTimeout(() => {
+    // Loop through each span (DU and KE)
+    logoSpan.forEach((span, idx) => {
+      setTimeout(() => {
+        // Add the 'active' class to trigger CSS transition
+        span.classList.add('active');
+      }, (idx + 1) * 400); // Stagger each span by 400ms
+    });
+
+    // Make the subtitle appear after "DU" and "KE" finish animating
+    setTimeout(() => {
+      subtitle.classList.add('active'); // Trigger subtitle animation
+    }, logoSpan.length * 400 + 1500); // Delay based on "DU" and "KE" animation + extra buffer
+
+    // Make all spans fade out
+    setTimeout(() => {
+      logoSpan.forEach((span, idx) => {
+        setTimeout(() => {
+          span.classList.remove('active');
+          span.classList.add('fade');
+        }, (idx + 1) * 50); // Adjust timing for fade out
+      });
+
+      // Fade out the subtitle
+      subtitle.classList.remove('active');
+      subtitle.classList.add('fade');
+    }, 3700);
+
+    // Move the intro container off-screen and hide it
+    setTimeout(() => {
+      intro.classList.add('fade-out'); // Add a class to trigger fade-out
+    }, 4500);
+
+  }, 300);
+});
+
+
+
+
+
   if (balls.length > 0) {
     balls[0].classList.add("active");
   }
