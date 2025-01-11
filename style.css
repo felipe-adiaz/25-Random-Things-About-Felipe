@@ -117,13 +117,10 @@ body {
     top: -100vh; 
   }
   
-  /* ========== 6) Responsive Tweaks ========== */
+/* ========== 6) Responsive Tweaks ========== */
   @media (max-width: 600px) {
-    .intromeio {
-      font-size: 1rem; /* smaller text on small screens */
-    }
-    .subtitle {
-      font-size: 1rem;
+    .intro-line.active {
+      width: 65%; /* Line expands when active */
     }
   }
 
