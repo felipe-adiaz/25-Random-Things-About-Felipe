@@ -10,84 +10,121 @@ body {
   color: #333;
 }
 
-/* Intro screen background */
+/* ========== 1) Intro Container: Blue -> White ========== */
 .introfora {
     position: fixed;
     z-index: 10001;
-    color: #012169;
     left: 0;
     top: 0;
     width: 100%;
     height: 100vh;
-    background-color: #ffffff; /* Initial background color */
-    animation: fadeBluetoWhite 3s ease forwards; /* Optional fade */
-    transition: top 0.5s ease, opacity 0.5s ease; /* Smooth transition for fade-out */
+    font-size: 5rem;
+  
+    /* Start: #012169 (blue), end: #ffffff (white) */
+    animation: fadeBluetoWhite 3s ease forwards; 
+    /* Slide up eventually, so let’s only transition 'top' */
+    transition: top 0.5s ease; 
   }
   
-  /* Keyframes for background fade (optional) */
+  /* Keyframe: fade background from blue to white */
   @keyframes fadeBluetoWhite {
-    0% {
-      background-color: #012169;
-    }
-    100% {
-      background-color: #ffffff;
-    }
+    0%   { background-color: #012169; }
+    100% { background-color: #ffffff; }
   }
   
-  /* Center the text container in the middle of the screen */
+  /* ========== 2) Center the Text ========== */
   .intromeio {
     position: absolute;
-    top: 40%; /* Adjust vertical alignment */
-    left: 50%;
+    top: 40%;       /* Vertical center offset */
+    left: 50%;      /* Horizontal center offset */
     transform: translate(-50%, -50%);
-    color: #012169;
-    text-align: center; /* Center text and spans horizontally */
+    text-align: center;
+    color: #012169; /* Text color for DU/KE/FUQUA if needed */
+    line-height: 1;
   }
   
-  /* Styling for "DU" and "KE" spans */
+  /* ========== 3) The "introdentro" Elements (DU, KE, LINE, FUQUA) ========== */
+  /* They all fade in the same way. */
   .introdentro {
     position: relative;
-    display: inline-block;
-    bottom: -20px; /* Initially out of position */
-    opacity: 0;    /* Initially hidden */
-    transition: bottom 0.5s ease, opacity 0.5s ease; /* Smooth fade-in */
-    font-size: 4rem;
+    display: inline-block; 
+    bottom: -20px; /* Start slightly below */
+    opacity: 0;    /* Invisible initially */
+    transition: bottom 0.5s ease, opacity 0.5s ease, width 0.5s ease;
   }
   
-  /* Active state for "DU" and "KE" */
+  /* When "active" => move up, become visible. */
   .introdentro.active {
-    bottom: 0;    /* Move into place */
-    opacity: 1;   /* Fully visible */
+    bottom: 0;
+    opacity: 1;
   }
   
-  /* Styling for subtitle */
+  .intro-line {
+    display: block; /* Line on its own row */
+    margin: 5px auto; /* Spacing around the line */
+    width: 0; /* Collapsed initially */
+    height: 2px; /* Thin line */
+    background-color: #012169; /* Blue color */
+    opacity: 0;
+    transition: width 0.5s ease, opacity 0.5s ease; /* Smooth expansion */
+  }
+  .intro-line.active {
+    width: 47%; /* Line expands when active */
+  }
+
+  .fuquaSpan {
+    display: block; /* FUQUA on its own row */
+    font-size: 2.5rem; /* Adjust size */
+    font-weight: 1000;
+    color: #012169;
+    opacity: 0; /* Invisible initially */
+    position: relative;
+    bottom: -10px; /* Start below position */
+    transition: opacity 0.5s ease, bottom 0.5s ease; /* Smooth transition */
+  }
+  .fuquaSpan.active {
+    opacity: 1; /* Visible when active */
+    bottom: 0; /* Move into position */
+  }
+  
+  /* ========== 4) Subtitle ========== */
   .subtitle {
     position: relative;
     display: inline-block;
-    margin-top: 10px; /* Space below "DUKE" */
-    opacity: 0;       /* Initially hidden */
-    transform: translateY(20px); /* Start slightly lower */
-    font-size: 1.5rem; /* Adjust font size */
+    margin-top: 10px;
+    opacity: 0; 
+    transform: translateY(20px);
+    font-size: 1.2rem;
     color: #012169;
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade-in */
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
-  
-  /* Active state for subtitle */
   .subtitle.active {
-    opacity: 1;             /* Fully visible */
-    transform: translateY(0); /* Move into position */
+    opacity: 1;
+    transform: translateY(0);
   }
   
-  /* Fade-out for spans */
+  /* ========== 5) Fade-out Classes ========== */
+  /* "fade" class => text moves up/fades out */
   .introdentro.fade, .subtitle.fade {
-    bottom: 20px; /* Move slightly upward */
-    opacity: 0;   /* Fade out */
-    transition: bottom 0.5s ease, opacity 0.5s ease;
+    bottom: 0;
+    opacity: 0;
+    transform: none;
+    transition: bottom 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
   }
   
-  /* Fade-out for the intro container */
+  /* Slide container up (sharp, no transparency) */
   .introfora.fade-out {
-    top: -100vh; /* Move off-screen */
+    top: -100vh; 
+  }
+  
+  /* ========== 6) Responsive Tweaks ========== */
+  @media (max-width: 600px) {
+    .intromeio {
+      font-size: 1rem; /* smaller text on small screens */
+    }
+    .subtitle {
+      font-size: 1rem;
+    }
   }
 
 
