@@ -120,7 +120,7 @@ body {
 /* ========== 6) Responsive Tweaks ========== */
   @media (max-width: 600px) {
     .intro-line.active {
-      width: 65%; /* Line expands when active */
+      width: 70%; /* Line expands when active */
     }
   }
 
