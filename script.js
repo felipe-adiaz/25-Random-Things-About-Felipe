@@ -10,49 +10,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Grab all .introdentro spans, the intro container, and the subtitle
-let logoSpan = document.querySelectorAll('.introdentro');
-let intro = document.querySelector('.introfora'); // Select intro container
-let subtitle = document.querySelector('.subtitle'); // Select the subtitle
+// 1) Select the "introdentro" items => "DU", "KE", the line, "FUQUA"
+const logoSpans = document.querySelectorAll(".introdentro");
 
-window.addEventListener('DOMContentLoaded', () => {
-  // Add a small initial delay (e.g., 300ms) if you want
+// 2) The intro container
+const intro = document.querySelector(".introfora");
+
+// 3) The subtitle
+const subtitle = document.querySelector(".subtitle");
+
+// ========== On Page Load ==========
+window.addEventListener("DOMContentLoaded", () => {
+  // SMALL INITIAL DELAY (optional)
   setTimeout(() => {
-    // Loop through each span (DU and KE)
-    logoSpan.forEach((span, idx) => {
+    // (A) FADE-IN SEQUENCE: DU -> KE -> LINE -> FUQUA
+    logoSpans.forEach((item, idx) => {
       setTimeout(() => {
-        // Add the 'active' class to trigger CSS transition
-        span.classList.add('active');
-      }, (idx + 1) * 400); // Stagger each span by 400ms
+        item.classList.add("active");
+      }, (idx + 1) * 400);
     });
 
-    // Make the subtitle appear after "DU" and "KE" finish animating
+    // (B) SUBTITLE appears after FUQUA (the last .introdentro)
     setTimeout(() => {
-      subtitle.classList.add('active'); // Trigger subtitle animation
-    }, logoSpan.length * 400 + 1500); // Delay based on "DU" and "KE" animation + extra buffer
+      subtitle.classList.add("active");
+    }, logoSpans.length * 400 + 1300);
 
-    // Make all spans fade out
+    // (C) WAIT, THEN FADE EVERYTHING OUT (3 seconds later)
     setTimeout(() => {
-      logoSpan.forEach((span, idx) => {
-        setTimeout(() => {
-          span.classList.remove('active');
-          span.classList.add('fade');
-        }, (idx + 1) * 50); // Adjust timing for fade out
+      // Fade out ALL .introdentro items at once
+      logoSpans.forEach((item) => {
+        item.classList.remove("active");
+        item.classList.add("fade");
       });
 
       // Fade out the subtitle
-      subtitle.classList.remove('active');
-      subtitle.classList.add('fade');
-    }, 3700);
+      subtitle.classList.remove("active");
+      subtitle.classList.add("fade");
+    }, 4800);
 
-    // Move the intro container off-screen and hide it
+    // (D) SLIDE INTRO UP AFTER TEXT FADE (additional 1 second after fade starts)
     setTimeout(() => {
-      intro.classList.add('fade-out'); // Add a class to trigger fade-out
-    }, 4500);
+      intro.classList.add("fade-out");
+    }, 5500);
 
-  }, 300);
+  }, 300); // initial small delay
 });
-
 
 
 
